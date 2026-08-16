@@ -1,21 +1,28 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+let browserClient: SupabaseClient | undefined
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase credentials in .env.local')
-}
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
-
-// Server-side client (for API routes)
-export function createServerClient() {
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-
-  if (!serviceRoleKey) {
-    throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY in environment')
+function getBrowserClient() {
+  if (browserClient) {
+    return browserClient
   }
 
-  return createClient(supabaseUrl, serviceRoleKey)
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error('Missing browser-side Supabase credentials in environment')
+  }
+
+  browserClient = createClient(supabaseUrl, supabaseAnonKey)
+  return browserClient
 }
+
+export const supabase = new Proxy({} as SupabaseClient, {
+  get(_target, property) {
+    const client = getBrowserClient()
+    const value = Reflect.get(client, property, client)
+
+    return typeof value === 'function' ? value.bind(client) : value
+  },
+})
