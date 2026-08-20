@@ -12,6 +12,13 @@ out
 build
 dist
 
+# Any env file, whatever the suffix
+.env*
+
+# Build archives
+*.zip
+
+
 # Environment variables
 .env
 .env.local
