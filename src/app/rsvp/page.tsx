@@ -130,7 +130,7 @@ export default function RSVPPage() {
 
               <a href="https://parn-mike-wedding.netlify.app" target="_blank" rel="noopener noreferrer" className="block w-full px-8 py-4 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-bold rounded-xl hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all mb-6 text-center">
                 <i className="ti ti-world-www mr-2"></i>
-                Visit Our Wedding Site / เข้าชมเว็บไซต์งานแต่ง
+                เขียนคำอวยพรออนไลน์ / Send Your Wishes Online
               </a>
 
               <p className="text-sm text-[#789568] font-serif text-center mb-6">
@@ -308,6 +308,16 @@ export default function RSVPPage() {
                   </div>
                 </form>
               </div>
+            </div>
+            <div className="mt-12 bg-gradient-to-b from-[#F5EBD2] to-white rounded-3xl shadow-lg border-2 border-[#C9A45C]/30 p-8 text-center">
+              <p className="text-[#536B3E] font-serif font-semibold mb-1">มาร่วมงานไม่ได้ใช่ไหมคะ?</p>
+              <p className="text-[#C9A45C] font-serif text-2xl font-bold mb-2">ฝากคำอวยพรออนไลน์ไว้กับเราได้นะคะ 💚</p>
+              <p className="text-[#789568] font-serif text-sm mb-6">Unable to join us? Send your wishes online</p>
+              <a href="https://parn-mike-wedding.netlify.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-bold rounded-xl hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all">
+                <i className="ti ti-heart"></i>
+                เขียนคำอวยพร / Send Your Wishes
+              </a>
+              <p className="text-xs text-[#789568] font-serif mt-4">parn-mike-wedding.netlify.app</p>
             </div>
 
             <div className="mt-12 bg-white rounded-2xl shadow-lg border border-[#789568]/10 p-8">
