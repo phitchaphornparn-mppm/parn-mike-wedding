@@ -28,30 +28,6 @@ export default function InformationPage() {
           </h1>
           <p className="text-[#789568] font-serif text-lg">ข้อมูลงานแต่ง</p>
         </div>
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#789568]/10 mb-8">
-          <div className="bg-gradient-to-r from-[#789568] to-[#536B3E] px-8 py-8 text-center text-white">
-            <h2 className="font-serif text-2xl font-bold mb-2">Wedding Card / การ์ดแต่งงาน</h2>
-            <p className="font-serif text-sm opacity-90">เปิดอ่านการ์ดเชิญของเรา</p>
-          </div>
-
-          <div className="p-4 sm:p-8">
-            <div className="relative w-full overflow-hidden rounded-2xl border-2 border-[#789568]/20" style={{ paddingTop: '75%' }}>
-              <iframe
-                src="https://publuu.com/flip-book/1162216/2585463/page/1?embed"
-                title="PM Wedding Card"
-                className="absolute inset-0 w-full h-full border-0"
-                allowFullScreen
-                allow="clipboard-write"
-              ></iframe>
-            </div>
-
-            <div className="text-center mt-6">
-              <a href="https://publuu.com/flip-book/1162216/2585463" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all">
-                เปิดการ์ดเต็มจอ / Open Full Screen
-              </a>
-            </div>
-          </div>
-        </div>
 
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#789568]/10 mb-8">
           <div className="bg-gradient-to-r from-[#789568] to-[#536B3E] px-8 py-8 text-center text-white">
