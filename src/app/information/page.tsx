@@ -138,6 +138,21 @@ export default function InformationPage() {
 
             <div>
               <h3 className="font-serif text-lg font-bold text-[#536B3E] mb-4 flex items-center gap-2">
+                <i className="ti ti-brand-line text-[#789568]"></i>
+                LINE OpenChat / ไลน์โอเพนแชท
+              </h3>
+              <a href="https://line.me/ti/g2/E0FCGaQ7sQEvrWL4dVANeuzHaQTFgsYquTETpw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#F5EBD2]/50 to-white rounded-xl border border-[#789568]/20 hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-full bg-[#789568]/10 flex items-center justify-center flex-shrink-0">
+                  <i className="ti ti-brand-line text-[#789568] text-2xl"></i>
+                </div>
+                <div>
+                  <p className="font-serif font-bold text-[#536B3E]">PARN ♡ MIKE | THE WEDDING LOUNGE</p>
+                  <p className="font-serif text-sm text-[#789568] mt-1">เข้าร่วมกลุ่มแชทของเรา</p>
+                </div>
+              </a>
+            </div>
+            <div>
+              <h3 className="font-serif text-lg font-bold text-[#536B3E] mb-4 flex items-center gap-2">
                 <img src="https://i.postimg.cc/NjPdg1jR/khxng-char-wy-(20).png" alt="Website" className="w-6 h-6 object-contain" />
                 Visit Our Website / เว็บไซต์ของเรา
               </h3>
