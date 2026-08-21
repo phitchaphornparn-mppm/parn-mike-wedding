@@ -53,7 +53,6 @@ export default function SchedulePage() {
               <Link href="/photos" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568] transition-colors">
                 Photos
               </Link>
-              <a href="https://parn-mike-wedding.netlify.app" target="_blank" rel="noopener noreferrer" className="text-sm font-serif font-medium text-[#C9A45C] hover:text-[#789568]">อวยพร</a>
             </div>
           </div>
         </div>
