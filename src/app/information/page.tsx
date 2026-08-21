@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { Info, Clock, Lightbulb } from 'lucide-react'
 
 export default function InformationPage() {
   return (
@@ -23,7 +24,7 @@ export default function InformationPage() {
       <main className="max-w-4xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h1 className="font-serif text-4xl font-bold text-[#536B3E] mb-3 flex items-center justify-center gap-3">
-            <i className="ti ti-info-circle text-[#789568]"></i>
+            <Info size={32} className="text-[#789568]" />
             Wedding Information
           </h1>
           <p className="text-[#789568] font-serif text-lg">ข้อมูลงานแต่ง</p>
@@ -93,8 +94,8 @@ export default function InformationPage() {
             </div>
 
             <div className="bg-[#789568]/10 border border-[#789568]/30 rounded-lg p-4">
-              <p className="text-sm text-[#536B3E] font-serif">
-                <i className="ti ti-clock text-[#789568] mr-2"></i>
+              <p className="text-sm text-[#536B3E] font-serif flex items-center gap-2">
+                <Clock size={16} className="text-[#789568]" />
                 <strong>โปรดมาถึงสถานที่ก่อนเวลาราว 15-20 นาที</strong> เพื่อให้มีเวลาสำหรับลงทะเบียน
               </p>
             </div>
@@ -136,7 +137,7 @@ export default function InformationPage() {
               </div>
             </div>
 
-<div>
+            <div>
               <h3 className="font-serif text-lg font-bold text-[#536B3E] mb-4 flex items-center gap-2">
                 <img src="https://cdn-icons-png.flaticon.com/256/739/739144.png" alt="LINE" className="w-6 h-6 object-contain" />
                 LINE OpenChat / ไลน์โอเพนแชท
@@ -151,8 +152,7 @@ export default function InformationPage() {
                 </div>
               </a>
             </div>
-              </a>
-            </div>
+
             <div>
               <h3 className="font-serif text-lg font-bold text-[#536B3E] mb-4 flex items-center gap-2">
                 <img src="https://i.postimg.cc/NjPdg1jR/khxng-char-wy-(20).png" alt="Website" className="w-6 h-6 object-contain" />
@@ -171,7 +171,7 @@ export default function InformationPage() {
 
             <div className="bg-[#C9A45C]/10 border-2 border-[#C9A45C]/30 rounded-2xl p-6">
               <h4 className="font-serif font-bold text-[#536B3E] mb-3 flex items-center gap-2">
-                <i className="ti ti-bulb text-[#C9A45C]"></i>
+                <Lightbulb size={20} className="text-[#C9A45C]" />
                 Helpful Tips / คำแนะนำ
               </h4>
               <ul className="font-serif text-sm text-[#536B3E] space-y-2">
