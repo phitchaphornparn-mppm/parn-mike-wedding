@@ -69,34 +69,18 @@ export default function PhotosPage() {
       </nav>
 
       <main className="max-w-6xl mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="font-serif text-4xl font-bold text-[#536B3E] mb-4">Our Photos / รูปถ่ายของเรา</h1>
-          <p className="text-[#789568] font-serif text-lg mb-8">Share your memories with us!</p>
-
-          {/* Upload/Share Section */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link
-              href="/upload"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all shadow-lg"
-            >
-              <Upload size={20} />
-              Share Photos
-            </Link>
-            <Link
-              href="/upload"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all shadow-lg"
-            >
-              <Upload size={20} />
-              Upload your memories
-            </Link>
-            <Link
-              href="/upload"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all shadow-lg"
-            >
-              <Upload size={20} />
-              แชร์ความทรงจำของคุณ
-            </Link>
+        <div className="flex justify-between items-center mb-12">
+          <div>
+            <h1 className="font-serif text-4xl font-bold text-[#536B3E]">Our Photos</h1>
+            <p className="text-[#789568] font-serif text-lg mt-2">รูปถ่ายของเรา</p>
           </div>
+          <Link
+            href="/upload"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all shadow-lg"
+          >
+            <Upload size={20} />
+            Share Photos
+          </Link>
         </div>
 
         {loading ? (
@@ -104,8 +88,9 @@ export default function PhotosPage() {
             <p className="text-[#789568] font-serif text-lg">Loading photos...</p>
           </div>
         ) : photos.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-[#789568] font-serif text-lg mb-6">No photos yet. Be the first to share!</p>
+          <div className="text-center py-20">
+            <p className="text-[#789568] font-serif text-lg mb-6">ยังไม่มีรูปถ่าย / No photos yet</p>
+            <p className="text-[#789568] font-serif text-sm mb-8">Be the first to share your memories!</p>
             <Link
               href="/upload"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all"
