@@ -11,9 +11,9 @@ export default function SchedulePage() {
       description: 'Welcome & Check-in',
       icon: 'https://i.postimg.cc/26JDfRNk/khxng-char-wy-(8).png'
     },
-    { 
-      time: '08:39', 
-      activity: 'Khan Maak Procession',
+    {
+      time: '08:39',
+      activity: 'แห่ขันหมาก',
       activityTH: 'แห่ขันหมาก',
       description: 'Traditional Thai Wedding Procession',
       icon: 'https://i.postimg.cc/cCnNx90p/khxng-char-wy-(9).png'

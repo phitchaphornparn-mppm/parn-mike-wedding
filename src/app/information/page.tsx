@@ -43,7 +43,7 @@ export default function InformationPage() {
                   <img src="https://i.postimg.cc/90tmGmn9/khxng-char-wy-(18).png" alt="Venue" className="w-16 h-16 object-contain" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-2xl font-bold text-[#536B3E] mb-2">Wiset Samutkhun School</h3>
+                  <h3 className="font-serif text-2xl font-bold text-[#536B3E] mb-2">2 HEARTS 1 JOURNEY</h3>
                   <p className="font-serif text-lg text-[#789568] mb-2">The School Auditorium</p>
                   <p className="font-serif text-sm text-[#789568] mb-4">โรงเรียนกระทุ่มแบน "วิเศษสมุทคุณ"</p>
                   <a href="https://maps.app.goo.gl/rggfEtMGCi5gQyty5" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all">

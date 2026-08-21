@@ -32,7 +32,7 @@ export default function AdminSchedulePage() {
       id: '2',
       time: '08:39',
       time_th: '08:39 น.',
-      title: 'Khan Maak Procession',
+      title: 'แห่ขันหมาก',
       title_th: 'แห่ขันหมาก',
       description: 'Traditional Thai Wedding Procession',
       description_th: 'พิธีแห่ขันหมากแบบดั้งเดิมไทย',

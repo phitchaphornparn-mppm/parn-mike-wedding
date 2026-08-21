@@ -95,7 +95,7 @@ export default function RSVPPage() {
             {isAttending ? (
               <div className="space-y-3">
                 <p className="text-2xl font-bold text-[#C9A45C] font-serif">ดีใจที่จะได้ฉลองวันพิเศษนี้ไปด้วยกันนะคะ!</p>
-                <p className="text-sm text-[#B7A286] font-serif">6 December 2026 · Wiset Samutkhun School</p>
+                <p className="text-sm text-[#B7A286] font-serif">6 December 2026 · 2 HEARTS 1 JOURNEY</p>
               </div>
             ) : (
               <div className="space-y-4">

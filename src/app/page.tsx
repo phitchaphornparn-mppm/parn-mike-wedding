@@ -49,7 +49,7 @@ export default function Home() {
           <div className="bg-white/90 backdrop-blur rounded-full px-8 py-4 inline-block mx-auto shadow-lg">
             <p className="text-[#789568] font-serif font-semibold flex items-center justify-center gap-2">
               <i className="ti ti-map-pin"></i>
-              Wiset Samutkhun School
+              2 HEARTS 1 JOURNEY
             </p>
           </div>
 
@@ -167,7 +167,7 @@ export default function Home() {
                 <img src="https://i.postimg.cc/yxqF5xdr/khxng-char-wy-(6).png" alt="Reception" className="w-12 h-12 object-contain" />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-[#536B3E]">Khan Maak Procession / แห่ขันหมาก</h3>
+                <h3 className="font-serif text-lg font-bold text-[#536B3E]">แห่ขันหมาก</h3>
                 <p className="text-[#789568] font-serif text-sm">08:39 AM</p>
               </div>
             </div>

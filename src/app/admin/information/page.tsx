@@ -7,7 +7,7 @@ export default function AdminInformationPage() {
   const [loading, setLoading] = useState(false)
   const [saved, setSaved] = useState(false)
   const [formData, setFormData] = useState({
-    venue_name: 'Wiset Samutkhun School',
+    venue_name: '2 HEARTS 1 JOURNEY',
     venue_address: 'Krathumban, Samut Sakhon',
     venue_phone: '+66 (34) 812-0185',
     venue_maps: 'https://maps.app.goo.gl/rggfEtMGCi5gQyty5',
