@@ -167,11 +167,11 @@ export default function Home() {
                 <img src="https://i.postimg.cc/yxqF5xdr/khxng-char-wy-(6).png" alt="Reception" className="w-12 h-12 object-contain" />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-[#536B3E]">Reception / งานแสดง</h3>
+                <h3 className="font-serif text-lg font-bold text-[#536B3E]">Khan Maak Procession / แห่ขันหมาก</h3>
                 <p className="text-[#789568] font-serif text-sm">08:39 AM</p>
               </div>
             </div>
-            <p className="text-[#536B3E] font-serif text-sm text-center">Khan Maak Procession</p>
+            <p className="text-[#536B3E] font-serif text-sm text-center">Traditional Thai Wedding Procession</p>
           </div>
 
           {/* Celebration */}
