@@ -121,7 +121,7 @@ export default function RSVPPage() {
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#789568]/10">
               <div className="bg-gradient-to-r from-[#789568] to-[#536B3E] px-8 py-8 text-center text-white">
                 <h2 className="font-serif text-2xl font-bold mb-2">ตอบรับคำเชิญ</h2>
-                <p className="font-serif text-sm opacity-90">กรอกไม่กี่ช่อง ใช้เวลาไม่ถึงนาทีค่ะ</p>
+                <p className="font-serif text-sm opacity-90">ใช้เวลาเพียงครู่เดียว เพื่อยืนยันการร่วมสร้างความทรงจำไปกับเราได้แล้วค่ะ</p>
               </div>
 
               <div className="p-8">
