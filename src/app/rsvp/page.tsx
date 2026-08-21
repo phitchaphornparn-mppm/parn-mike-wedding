@@ -66,7 +66,6 @@ export default function RSVPPage() {
               <Link href="/photos" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Photos</Link>
               <Link href="/information" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Information</Link>
               <Link href="/schedule" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Schedule</Link>
-              <a href={WISHES_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-serif font-medium text-[#C9A45C] hover:text-[#789568]">อวยพร</a>
             </div>
           </div>
         </div>
