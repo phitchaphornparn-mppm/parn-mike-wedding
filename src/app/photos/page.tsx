@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
-import { Upload } from 'lucide-react'
 
 interface Photo {
   id: string
@@ -69,17 +68,20 @@ export default function PhotosPage() {
       </nav>
 
       <main className="max-w-6xl mx-auto px-4 py-16">
-        <div className="flex justify-between items-center mb-12">
-          <div>
-            <h1 className="font-serif text-4xl font-bold text-[#536B3E]">Our Photos</h1>
-            <p className="text-[#789568] font-serif text-lg mt-2">รูปถ่ายของเรา</p>
-          </div>
+        <div className="flex flex-col items-center text-center mb-12">
+          <h1 className="font-serif text-4xl font-bold text-[#536B3E] mb-2">Our Photos</h1>
+          <p className="text-[#789568] font-serif text-lg mb-8">รูปถ่ายของเรา</p>
+
           <Link
             href="/upload"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all shadow-lg"
+            className="inline-flex flex-col items-center gap-4 px-8 py-6 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all shadow-lg group"
           >
-            <Upload size={20} />
-            Share Photos
+            <img
+              src="https://cdn-icons-png.flaticon.com/128/4542/4542040.png"
+              alt="Share"
+              className="w-12 h-12 group-hover:scale-110 transition-transform"
+            />
+            <span>Share Photos</span>
           </Link>
         </div>
 
@@ -93,10 +95,14 @@ export default function PhotosPage() {
             <p className="text-[#789568] font-serif text-sm mb-8">Be the first to share your memories!</p>
             <Link
               href="/upload"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all"
+              className="inline-flex flex-col items-center gap-3 px-6 py-4 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-medium rounded-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all group"
             >
-              <Upload size={20} />
-              Upload a Photo
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/4542/4542040.png"
+                alt="Upload"
+                className="w-8 h-8 group-hover:scale-110 transition-transform"
+              />
+              <span>Upload a Photo</span>
             </Link>
           </div>
         ) : (
