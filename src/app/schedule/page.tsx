@@ -59,12 +59,22 @@ export default function SchedulePage() {
           <p className="text-[#789568] font-serif font-semibold tracking-[0.3em] text-sm mb-4">2 HEARTS · 1 JOURNEY</p>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#536B3E] mb-2">Wedding Schedule</h1>
           <p className="font-serif text-lg text-[#536B3E] mb-6">กำหนดการวันงาน</p>
-          <div className="bg-white rounded-3xl shadow-lg border border-[#789568]/10 px-6 py-5 inline-block">
-            <p className="text-[#536B3E] font-serif text-lg font-bold">Sunday, 6 December 2026</p>
-            <p className="text-[#789568] font-serif text-sm mt-1">วันอาทิตย์ที่ 6 ธันวาคม 2569</p>
-            <div className="w-12 h-px bg-[#C9A45C] mx-auto my-3"></div>
-            <p className="text-[#536B3E] font-serif text-sm font-semibold">The School Auditorium</p>
-            <p className="text-[#789568] font-serif text-sm">โรงเรียนกระทุ่มแบน &quot;วิเศษสมุทคุณ&quot;</p>
+          <div className="bg-white rounded-3xl shadow-lg border border-[#789568]/10 grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#789568]/15">
+            <div className="px-6 py-6">
+              <p className="text-[#C9A45C] font-serif font-semibold tracking-[0.2em] text-xs mb-2">DATE · วันที่</p>
+              <p className="text-[#536B3E] font-serif text-lg font-bold">Sunday, 6 December 2026</p>
+              <p className="text-[#789568] font-serif text-sm mt-1">วันอาทิตย์ที่ 6 ธันวาคม 2569</p>
+            </div>
+            <div className="px-6 py-6">
+              <p className="text-[#C9A45C] font-serif font-semibold tracking-[0.2em] text-xs mb-2">TIME · เวลา</p>
+              <p className="text-[#536B3E] font-serif text-lg font-bold">From 07:09 AM</p>
+              <p className="text-[#789568] font-serif text-sm mt-1">เริ่ม 07:09 น. เป็นต้นไป</p>
+            </div>
+            <div className="px-6 py-6">
+              <p className="text-[#C9A45C] font-serif font-semibold tracking-[0.2em] text-xs mb-2">VENUE · สถานที่</p>
+              <p className="text-[#536B3E] font-serif text-lg font-bold">The School Auditorium</p>
+              <p className="text-[#789568] font-serif text-sm mt-1">โรงเรียนกระทุ่มแบน &quot;วิเศษสมุทคุณ&quot;</p>
+            </div>
           </div>
         </div>
 
