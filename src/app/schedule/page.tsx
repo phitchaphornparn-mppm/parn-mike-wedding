@@ -13,7 +13,7 @@ export default function SchedulePage() {
     },
     {
       time: '08:39',
-      activity: 'แห่ขันหมาก',
+      activity: 'Khan Maak Procession',
       activityTH: 'แห่ขันหมาก',
       description: 'Traditional Thai Wedding Procession',
       icon: 'https://i.postimg.cc/cCnNx90p/khxng-char-wy-(9).png'
@@ -41,57 +41,53 @@ export default function SchedulePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center gap-3">
-              <span className="font-serif font-bold text-lg text-[#789568]">PARN & MIKE</span>
+              <span className="font-serif font-bold text-base sm:text-lg text-[#789568] whitespace-nowrap">PARN & MIKE</span>
             </Link>
-            <div className="space-x-6">
-              <Link href="/rsvp" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568] transition-colors">
-                RSVP
-              </Link>
-              <Link href="/information" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568] transition-colors">
-                Information
-              </Link>
-              <Link href="/photos" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568] transition-colors">
-                Photos
-              </Link>
+            <div className="space-x-3 sm:space-x-6 whitespace-nowrap">
+              <Link href="https://drive.google.com/drive/folders/161V_cnOtutZLQOh5CVz3Es5fmMdDBX4R?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568] transition-colors">Photos</Link>
+              <Link href="/rsvp" className="text-xs sm:text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568] transition-colors">RSVP</Link>
+              <Link href="/information" className="text-xs sm:text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568] transition-colors">Information</Link>
+              <Link href="/schedule" className="text-xs sm:text-sm font-serif font-bold text-[#789568]">Schedule</Link>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Main */}
-      <main className="max-w-4xl mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="font-serif text-4xl font-bold text-[#536B3E] mb-3 flex items-center justify-center gap-3">
-            <i className="ti ti-clock text-[#789568]"></i>
-            Wedding Schedule
-          </h1>
-          <p className="text-[#789568] font-serif text-lg font-semibold">6 December 2026</p>
+      <main className="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+        <div className="text-center mb-12">
+          <p className="text-[#789568] font-serif font-semibold tracking-[0.3em] text-sm mb-4">2 HEARTS · 1 JOURNEY</p>
+          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#536B3E] mb-2">Wedding Schedule</h1>
+          <p className="font-serif text-lg text-[#536B3E] mb-6">กำหนดการวันงาน</p>
+          <div className="bg-white rounded-3xl shadow-lg border border-[#789568]/10 px-6 py-5 inline-block">
+            <p className="text-[#536B3E] font-serif text-lg font-bold">Sunday, 6 December 2026</p>
+            <p className="text-[#789568] font-serif text-sm mt-1">วันอาทิตย์ที่ 6 ธันวาคม 2569</p>
+            <div className="w-12 h-px bg-[#C9A45C] mx-auto my-3"></div>
+            <p className="text-[#536B3E] font-serif text-sm font-semibold">The School Auditorium</p>
+            <p className="text-[#789568] font-serif text-sm">โรงเรียนกระทุ่มแบน &quot;วิเศษสมุทคุณ&quot;</p>
+          </div>
         </div>
 
         {/* Timeline */}
-        <div className="space-y-6 mb-16">
+        <div className="space-y-2 mb-16">
           {schedule.map((item, idx) => (
-            <div key={idx} className="flex gap-6">
+            <div key={idx} className="flex gap-4 sm:gap-6">
               <div className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full bg-[#97a889] flex items-center justify-center shadow-lg border-4 border-white">
+                <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#97a889] flex items-center justify-center shadow-lg border-4 border-white flex-shrink-0">
                   <img 
                     src={item.icon}
                     alt={item.activity}
-                    className="w-12 h-12 object-contain"
+                    className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
                   />
                 </div>
                 {idx < schedule.length - 1 && (
-                  <div className="w-1 h-16 bg-gradient-to-b from-[#C9A45C] to-[#789568] my-2"></div>
+                  <div className="w-1 flex-1 min-h-[2rem] bg-gradient-to-b from-[#C9A45C] to-[#789568] my-2 rounded-full"></div>
                 )}
               </div>
 
-              <div className="bg-white rounded-2xl shadow-lg p-6 border border-[#789568]/10 flex-1 hover:shadow-xl transition-shadow duration-300 mt-2">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-[#97a889]/10 flex items-center justify-center">
-                    <span className="text-sm font-serif font-bold text-[#97a889]">{item.time}</span>
-                  </div>
-                </div>
-                <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-1">
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-[#789568]/10 flex-1 hover:shadow-xl transition-shadow duration-300 mb-2">
+                <span className="inline-block px-3 py-1 rounded-full bg-[#789568]/10 text-sm font-serif font-bold text-[#536B3E] mb-3">{item.time} น.</span>
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#536B3E] mb-1">
                   {item.activity}
                 </h3>
                 <p className="font-serif text-sm text-[#789568] font-medium mb-3">
@@ -106,27 +102,26 @@ export default function SchedulePage() {
         </div>
 
         {/* Good to Know Section */}
-        <div className="bg-gradient-to-r from-[#789568]/15 to-[#536B3E]/15 border-2 border-[#789568]/30 rounded-2xl p-8 mb-8">
+        <div className="bg-gradient-to-r from-[#789568]/15 to-[#536B3E]/15 border-2 border-[#789568]/30 rounded-2xl p-6 sm:p-8 mb-8">
           <h2 className="font-serif text-2xl font-bold text-[#536B3E] mb-6 flex items-center gap-2">
-            <i className="ti ti-info-circle text-[#789568] text-2xl"></i>
-            Good to Know
+            Good to Know / ข้อมูลน่ารู้
           </h2>
           <ul className="space-y-3 text-[#536B3E] font-serif font-medium">
-            <li className="flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#789568]"></span>
-              Come a little early and make yourself comfortable
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#789568] mt-2 flex-shrink-0"></span>
+              <span>Come a little early and make yourself comfortable<br /><span className="text-sm font-normal text-[#789568]">มาถึงก่อนเวลาเล็กน้อย จะได้ไม่ต้องรีบ</span></span>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#789568]"></span>
-              Dress up and celebrate with us
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#789568] mt-2 flex-shrink-0"></span>
+              <span>Dress up and celebrate with us<br /><span className="text-sm font-normal text-[#789568]">แต่งตัวสวยหล่อมาฉลองด้วยกัน</span></span>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#789568]"></span>
-              Parking is available on-site
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#789568] mt-2 flex-shrink-0"></span>
+              <span>Parking is available on-site<br /><span className="text-sm font-normal text-[#789568]">มีที่จอดรถในบริเวณงาน</span></span>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#789568]"></span>
-              We can't wait to celebrate with you!
+            <li className="flex items-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#789568] mt-2 flex-shrink-0"></span>
+              <span>We can&apos;t wait to celebrate with you!<br /><span className="text-sm font-normal text-[#789568]">เราตั้งตารอที่จะได้ฉลองกับทุกคน</span></span>
             </li>
           </ul>
         </div>
@@ -134,10 +129,14 @@ export default function SchedulePage() {
         {/* Tagline */}
         <div className="bg-white rounded-2xl shadow-lg p-8 border border-[#789568]/10 text-center">
           <p className="font-serif text-2xl font-bold text-[#789568] mb-2">PARN & MIKE</p>
-          <p className="font-serif text-lg text-[#536B3E] font-light tracking-wide mb-4">2 HEARTS · 1 JOURNEY</p>
-          <div className="space-y-2 text-[#B7A286] font-serif text-sm">
-            <p>© 2026 Our Special Day</p>
-            <p>Created with love by Bride Parn</p>
+          <p className="font-serif text-lg text-[#536B3E] font-light tracking-wide mb-6">2 HEARTS · 1 JOURNEY</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/rsvp" className="px-10 py-3 bg-gradient-to-r from-[#789568] to-[#536B3E] text-white font-serif font-bold rounded-full shadow-lg hover:from-[#536B3E] hover:to-[#3a4d2e] transition-all">
+              RSVP / ยืนยันการเข้าร่วม
+            </Link>
+            <a href="https://maps.app.goo.gl/rggfEtMGCi5gQyty5" target="_blank" rel="noopener noreferrer" className="px-10 py-3 border-2 border-[#789568] text-[#789568] font-serif font-bold rounded-full hover:bg-[#789568] hover:text-white transition-all">
+              Map / ดูแผนที่
+            </a>
           </div>
         </div>
       </main>
