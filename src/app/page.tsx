@@ -7,6 +7,13 @@ import { useEffect, useRef, useState } from 'react'
 const GALLERY_PHOTOS = [
   'https://i.postimg.cc/fRZp0Twt/PM-Wedding-Card.png',
   'https://i.postimg.cc/y6MKMJgY/ch-xng-thangkar-cha-range-n-Wedding-(7).png',
+  'https://i.postimg.cc/Hs5cSyPC/6A1A2566.jpg',
+  'https://i.postimg.cc/Hs5cSyPG/IMG-1157.jpg',
+  'https://i.postimg.cc/Hs5cSyvS/IMG-1158.jpg',
+  'https://i.postimg.cc/pX8h0Fc4/IMG-1624.jpg',
+  'https://i.postimg.cc/dVY7gVz0/IMG-3285.jpg',
+  'https://i.postimg.cc/6pX7FpDv/IMG-3905.jpg',
+  'https://i.postimg.cc/pLH93Lg9/IMG-9434.jpg',
 ]
 
 function PhotoGallery() {
