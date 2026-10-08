@@ -14,6 +14,7 @@ const GALLERY_PHOTOS = [
   'https://i.postimg.cc/dVY7gVz0/IMG-3285.jpg',
   'https://i.postimg.cc/6pX7FpDv/IMG-3905.jpg',
   'https://i.postimg.cc/pLH93Lg9/IMG-9434.jpg',
+  'https://i.postimg.cc/YC6FSW1Z/48DC65D2-5E6A-48B9-88E5-499F5B15755B.jpg',
 ]
 
 function PhotoGallery() {
