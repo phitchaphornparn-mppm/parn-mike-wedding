@@ -54,7 +54,7 @@ export default function SchedulePage() {
       </nav>
 
       {/* Main */}
-      <main className="max-w-3xl mx-auto px-4 py-12 sm:py-16">
+      <main className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
         <div className="text-center mb-12">
           <p className="text-[#789568] font-serif font-semibold tracking-[0.3em] text-sm mb-4">2 HEARTS · 1 JOURNEY</p>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#536B3E] mb-2">Wedding Schedule</h1>
@@ -69,44 +69,51 @@ export default function SchedulePage() {
         </div>
 
         {/* Timeline */}
-        <div className="space-y-2 mb-16">
-          {schedule.map((item, idx) => (
-            <div key={idx} className="flex gap-4 sm:gap-6">
-              <div className="flex flex-col items-center">
-                <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#97a889] flex items-center justify-center shadow-lg border-4 border-white flex-shrink-0">
-                  <img 
+        <div className="relative mb-16">
+          <div className="absolute top-6 bottom-6 left-7 md:left-1/2 w-0.5 -translate-x-1/2 bg-gradient-to-b from-[#C9A45C] to-[#789568] rounded-full"></div>
+          <div className="space-y-6 md:space-y-10">
+            {schedule.map((item, idx) => (
+              <div key={idx} className="relative flex items-start gap-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-8">
+                <div className={idx % 2 === 0 ? 'hidden md:block md:col-start-3 md:row-start-1 text-left' : 'hidden md:block md:col-start-1 md:row-start-1 text-right'}>
+                  <p className="font-serif text-3xl font-bold text-[#789568]">{item.time} น.</p>
+                  <p className="font-serif text-sm text-[#B7A286] mt-1">{item.description}</p>
+                </div>
+
+                {idx === schedule.length - 1 && (
+                  <div className="md:hidden absolute left-7 top-14 bottom-0 w-2 -translate-x-1/2 bg-[#F5EBD2]"></div>
+                )}
+
+                <div className="relative z-10 md:col-start-2 md:row-start-1 w-14 h-14 md:w-20 md:h-20 rounded-full bg-[#97a889] flex items-center justify-center shadow-lg border-4 border-white flex-shrink-0">
+                  <img
                     src={item.icon}
                     alt={item.activity}
-                    className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
+                    className="w-8 h-8 md:w-12 md:h-12 object-contain"
                   />
                 </div>
-                {idx < schedule.length - 1 && (
-                  <div className="w-1 flex-1 min-h-[2rem] bg-gradient-to-b from-[#C9A45C] to-[#789568] my-2 rounded-full"></div>
-                )}
-              </div>
 
-              <div className="bg-white rounded-2xl shadow-lg p-6 border border-[#789568]/10 flex-1 hover:shadow-xl transition-shadow duration-300 mb-2">
-                <span className="inline-block px-3 py-1 rounded-full bg-[#789568]/10 text-sm font-serif font-bold text-[#536B3E] mb-3">{item.time} น.</span>
-                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#536B3E] mb-1">
-                  {item.activity}
-                </h3>
-                <p className="font-serif text-sm text-[#789568] font-medium mb-3">
-                  {item.activityTH}
-                </p>
-                <p className="text-[#B7A286] font-serif text-sm">
-                  {item.description}
-                </p>
+                <div className={(idx % 2 === 0 ? 'md:col-start-1 md:text-right' : 'md:col-start-3 md:text-left') + ' md:row-start-1 flex-1 bg-white rounded-2xl shadow-lg p-5 sm:p-6 border border-[#789568]/10 hover:shadow-xl transition-shadow duration-300'}>
+                  <span className="md:hidden inline-block px-3 py-1 rounded-full bg-[#789568]/10 text-sm font-serif font-bold text-[#536B3E] mb-3">{item.time} น.</span>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#536B3E] mb-1">
+                    {item.activity}
+                  </h3>
+                  <p className="font-serif text-sm text-[#789568] font-medium">
+                    {item.activityTH}
+                  </p>
+                  <p className="md:hidden text-[#B7A286] font-serif text-sm mt-3">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Good to Know Section */}
         <div className="bg-gradient-to-r from-[#789568]/15 to-[#536B3E]/15 border-2 border-[#789568]/30 rounded-2xl p-6 sm:p-8 mb-8">
-          <h2 className="font-serif text-2xl font-bold text-[#536B3E] mb-6 flex items-center gap-2">
+          <h2 className="font-serif text-2xl font-bold text-[#536B3E] mb-6 text-center">
             Good to Know / ข้อมูลน่ารู้
           </h2>
-          <ul className="space-y-3 text-[#536B3E] font-serif font-medium">
+          <ul className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-[#536B3E] font-serif font-medium">
             <li className="flex items-start gap-3">
               <span className="w-2 h-2 rounded-full bg-[#789568] mt-2 flex-shrink-0"></span>
               <span>Come a little early and make yourself comfortable<br /><span className="text-sm font-normal text-[#789568]">มาถึงก่อนเวลาเล็กน้อย จะได้ไม่ต้องรีบ</span></span>
