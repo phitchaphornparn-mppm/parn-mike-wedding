@@ -5,7 +5,9 @@ export const metadata: Metadata = {
   title: 'PARN & MIKE - 2 HEARTS · 1 JOURNEY',
   description: 'Wedding Guest Experience Platform',
   icons: {
-    icon: '/favicon.ico',
+    icon: 'https://i.postimg.cc/9QhBFJH2/PM-Wedding-Card.png',
+    shortcut: 'https://i.postimg.cc/9QhBFJH2/PM-Wedding-Card.png',
+    apple: 'https://i.postimg.cc/9QhBFJH2/PM-Wedding-Card.png',
   },
 }
 
