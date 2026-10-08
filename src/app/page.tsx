@@ -2,6 +2,138 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+
+const GALLERY_PHOTOS = [
+  'https://i.postimg.cc/fRZp0Twt/PM-Wedding-Card.png',
+  'https://i.postimg.cc/y6MKMJgY/ch-xng-thangkar-cha-range-n-Wedding-(7).png',
+]
+
+function PhotoGallery() {
+  const stripRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [current, setCurrent] = useState<number | null>(null)
+  const state = useRef({ held: false, hover: false, open: false, resumeAt: 0 })
+
+  const n = GALLERY_PHOTOS.length
+  // repeat the photos so the strip is always long enough, then double it for a seamless loop
+  const base = Array.from({ length: n * Math.ceil(10 / n) }, (_, i) => i % n)
+  const tiles = [...base, ...base]
+
+  useEffect(() => {
+    state.current.open = current !== null
+    if (current === null) state.current.resumeAt = performance.now() + 300
+  }, [current])
+
+  useEffect(() => {
+    const strip = stripRef.current
+    const track = trackRef.current
+    if (!strip || !track) return
+    const s = state.current
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const hold = () => { s.held = true }
+    const release = () => { s.held = false; s.resumeAt = performance.now() + 1200 }
+    const enter = () => { s.hover = true }
+    const leave = () => { s.hover = false; s.resumeAt = performance.now() + 300 }
+    const wheel = () => { s.resumeAt = performance.now() + 1200 }
+    strip.addEventListener('touchstart', hold, { passive: true })
+    strip.addEventListener('touchend', release)
+    strip.addEventListener('touchcancel', release)
+    strip.addEventListener('mouseenter', enter)
+    strip.addEventListener('mouseleave', leave)
+    strip.addEventListener('wheel', wheel, { passive: true })
+
+    let pos = 0
+    let last = performance.now()
+    let frame = 0
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 100)
+      last = now
+      const half = track.scrollWidth / 2
+      const paused = s.held || s.hover || s.open || now < s.resumeAt || still
+      if (paused) pos = strip.scrollLeft
+      else pos += (half / 45) * dt / 1000
+      if (pos >= half) pos -= half
+      if (!paused || strip.scrollLeft >= half) strip.scrollLeft = pos
+      frame = requestAnimationFrame(tick)
+    }
+    frame = requestAnimationFrame(tick)
+
+    return () => {
+      cancelAnimationFrame(frame)
+      strip.removeEventListener('touchstart', hold)
+      strip.removeEventListener('touchend', release)
+      strip.removeEventListener('touchcancel', release)
+      strip.removeEventListener('mouseenter', enter)
+      strip.removeEventListener('mouseleave', leave)
+      strip.removeEventListener('wheel', wheel)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (current === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setCurrent(null)
+      if (e.key === 'ArrowLeft') setCurrent((c) => (c === null ? c : (c - 1 + n) % n))
+      if (e.key === 'ArrowRight') setCurrent((c) => (c === null ? c : (c + 1) % n))
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [current, n])
+
+  const fade = 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)'
+
+  return (
+    <section className="pt-16">
+      <style>{'.pm-strip::-webkit-scrollbar{display:none}'}</style>
+      <h2 className="text-center font-serif text-3xl font-bold text-[#536B3E] mb-2 px-4">Our Gallery / แกลเลอรีภาพถ่าย</h2>
+      <p className="text-center font-serif text-sm text-[#789568] mb-8 px-4">Pre-Wedding Moments · ช่วงเวลาแห่งความทรงจำของเรา</p>
+      <div
+        ref={stripRef}
+        className="pm-strip overflow-x-auto overflow-y-hidden py-4"
+        style={{ scrollbarWidth: 'none', WebkitMaskImage: fade, maskImage: fade }}
+      >
+        <div ref={trackRef} className="flex gap-5 w-max pr-5">
+          {tiles.map((p, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setCurrent(p)}
+              aria-label={'ขยายรูปที่ ' + (p + 1)}
+              className="flex-none w-[170px] h-[230px] sm:w-[240px] sm:h-[320px] rounded-3xl overflow-hidden border-4 border-white shadow-xl cursor-zoom-in transition-transform duration-300 hover:scale-105 bg-[#789568]/20"
+            >
+              <img src={GALLERY_PHOTOS[p]} alt={'Gallery photo ' + (p + 1)} loading="lazy" draggable={false} className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {current !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="รูปขยาย"
+          onClick={() => setCurrent(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#3c4b2d]/60 p-4"
+        >
+          <img
+            src={GALLERY_PHOTOS[current]}
+            alt={'Gallery photo ' + (current + 1)}
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-[82vw] sm:max-w-[420px] max-h-[76vh] w-auto h-auto rounded-3xl border-4 border-white shadow-2xl object-contain bg-white"
+          />
+          <button type="button" aria-label="ปิด" onClick={() => setCurrent(null)} className="absolute top-4 right-4 w-11 h-11 rounded-full bg-white text-[#536B3E] text-2xl leading-none shadow-lg">×</button>
+          {n > 1 && (
+            <>
+              <button type="button" aria-label="รูปก่อนหน้า" onClick={(e) => { e.stopPropagation(); setCurrent((current - 1 + n) % n) }} className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-[#536B3E] text-2xl leading-none shadow-lg">‹</button>
+              <button type="button" aria-label="รูปถัดไป" onClick={(e) => { e.stopPropagation(); setCurrent((current + 1) % n) }} className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white text-[#536B3E] text-2xl leading-none shadow-lg">›</button>
+            </>
+          )}
+        </div>
+      )}
+    </section>
+  )
+}
 
 export default function Home() {
   return (
@@ -64,6 +196,9 @@ export default function Home() {
           </p>
         </div>
       </div>
+      {/* Photo Gallery */}
+      <PhotoGallery />
+
       {/* Wedding Card */}
       <section className="max-w-4xl mx-auto px-4 pt-16">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#789568]/10">
