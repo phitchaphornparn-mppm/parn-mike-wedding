@@ -141,7 +141,7 @@ export default function Home() {
           <Link href="https://parn-mike-wedding.netlify.app" target="_blank" rel="noopener noreferrer" className="group">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105 border border-[#789568]/10">
               <div className="relative h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
-                <span className="text-7xl" role="img" aria-label="Gift">💝</span>
+                <img src="https://i.postimg.cc/FKDRJsfP/PM-Wedding-Card-3.png" alt="Wishes & Gift" className="w-28 h-28 object-contain" />
               </div>
               <div className="p-6 text-center">
                 <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-2">Wishes & Gift</h3>
