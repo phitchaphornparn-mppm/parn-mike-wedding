@@ -94,7 +94,7 @@ export default function Home() {
 
       {/* Feature Cards */}
       <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* RSVP Card */}
           <Link href="/rsvp" className="group">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105 border border-[#789568]/10">
@@ -133,6 +133,20 @@ export default function Home() {
                 <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-2">Information</h3>
                 <p className="text-[#789568] font-serif text-sm">Wedding Details</p>
                 <p className="text-[#789568] font-serif text-sm">รายละเอียด</p>
+              </div>
+            </div>
+          </Link>
+
+          {/* Online Gift Card */}
+          <Link href="https://parn-mike-wedding.netlify.app" target="_blank" rel="noopener noreferrer" className="group">
+            <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105 border border-[#789568]/10">
+              <div className="relative h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
+                <span className="text-7xl" role="img" aria-label="Gift">💝</span>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-2">Wishes & Gift</h3>
+                <p className="text-[#789568] font-serif text-sm">Send Your Wishes Online</p>
+                <p className="text-[#789568] font-serif text-sm">ร่วมอวยพรและช่วยงานออนไลน์</p>
               </div>
             </div>
           </Link>
