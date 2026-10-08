@@ -27,7 +27,7 @@ export default function SchedulePage() {
     },
     { 
       time: '11:00', 
-      activity: 'Lunch Reception',
+      activity: 'Guest Registration & Lunch Reception',
       activityTH: 'ลงทะเบียนแขกเข้างาน + รับประทานอาหารกลางวัน',
       description: 'Lunch & Celebration',
       icon: 'https://i.postimg.cc/5yCM47f9/khxng-char-wy-(11).png'
