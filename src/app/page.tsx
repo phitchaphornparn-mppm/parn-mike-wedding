@@ -17,6 +17,34 @@ const GALLERY_PHOTOS = [
   'https://i.postimg.cc/YC6FSW1Z/48DC65D2-5E6A-48B9-88E5-499F5B15755B.jpg',
 ]
 
+const WEDDING_TIME = new Date('2026-12-06T07:09:00+07:00').getTime()
+
+function Countdown() {
+  const [left, setLeft] = useState<number | null>(null)
+  useEffect(() => {
+    const update = () => setLeft(WEDDING_TIME - Date.now())
+    update()
+    const timer = setInterval(update, 60000)
+    return () => clearInterval(timer)
+  }, [])
+  if (left === null || left <= 0) return null
+  const parts = [
+    { value: Math.floor(left / 86400000), label: 'Days / วัน' },
+    { value: Math.floor(left / 3600000) % 24, label: 'Hours / ชั่วโมง' },
+    { value: Math.floor(left / 60000) % 60, label: 'Minutes / นาที' },
+  ]
+  return (
+    <div className="flex justify-center gap-3 sm:gap-5">
+      {parts.map((part) => (
+        <div key={part.label} className="w-24 sm:w-28 rounded-2xl bg-white/90 shadow-lg py-3">
+          <div className="font-serif text-3xl font-bold text-[#536B3E]">{part.value}</div>
+          <div className="font-serif text-[11px] text-[#789568] mt-1">{part.label}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function PhotoGallery() {
   const stripRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
@@ -150,19 +178,19 @@ export default function Home() {
       <nav className="bg-white shadow-sm sticky top-0 z-40 border-b border-[#789568]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <span className="font-serif font-bold text-lg text-[#789568]">PARN & MIKE</span>
-            <div className="space-x-6">
-              <Link href="https://drive.google.com/drive/folders/161V_cnOtutZLQOh5CVz3Es5fmMdDBX4R?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Photos</Link>
-              <Link href="/rsvp" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">RSVP</Link>
-              <Link href="/information" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Information</Link>
-              <Link href="/schedule" className="text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Schedule</Link>
+            <span className="font-serif font-bold text-base sm:text-lg text-[#789568] whitespace-nowrap">PARN & MIKE</span>
+            <div className="space-x-3 sm:space-x-6 whitespace-nowrap">
+              <Link href="https://drive.google.com/drive/folders/161V_cnOtutZLQOh5CVz3Es5fmMdDBX4R?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Photos</Link>
+              <Link href="/rsvp" className="text-xs sm:text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">RSVP</Link>
+              <Link href="/information" className="text-xs sm:text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Information</Link>
+              <Link href="/schedule" className="text-xs sm:text-sm font-serif font-medium text-[#536B3E] hover:text-[#789568]">Schedule</Link>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-[#F5EBD2] via-[#EFDCC4] to-[#789568] py-24 text-center">
+      <div className="bg-gradient-to-b from-[#F5EBD2] via-[#EFDCC4] to-[#789568] py-16 sm:py-24 text-center">
         <div className="max-w-2xl mx-auto px-4 space-y-8">
           {/* Couple Illustration */}
           <div className="flex justify-center">
@@ -184,24 +212,35 @@ export default function Home() {
             />
           </div>
 
-          {/* Venue Badge */}
-          <div className="bg-white/90 backdrop-blur rounded-full px-8 py-4 inline-block mx-auto shadow-lg">
-            <p className="text-[#789568] font-serif font-semibold flex items-center justify-center gap-2">
-              <i className="ti ti-map-pin"></i>
-              2 HEARTS 1 JOURNEY
-            </p>
+          {/* Tagline */}
+          <p className="text-[#789568] font-serif font-semibold tracking-[0.3em] text-sm">2 HEARTS · 1 JOURNEY</p>
+
+          {/* Invitation */}
+          <div>
+            <h1 className="text-[#536B3E] font-serif text-3xl md:text-4xl font-bold">We&apos;re Getting Married</h1>
+            <p className="text-[#536B3E] font-serif text-base mt-2">ขอเชิญร่วมเป็นเกียรติในงานมงคลสมรสของเรา</p>
           </div>
 
-          {/* Main Headline - Smaller */}
-          <h1 className="text-white font-serif text-2xl md:text-3xl font-bold leading-relaxed">
-            Thank You<br />
-            FOR BEING PART OF OUR SPECIAL DAY
-          </h1>
+          {/* Date & Venue */}
+          <div className="bg-white/90 backdrop-blur rounded-3xl px-6 py-6 shadow-lg max-w-md mx-auto">
+            <p className="text-[#536B3E] font-serif text-xl md:text-2xl font-bold">Sunday, 6 December 2026</p>
+            <p className="text-[#789568] font-serif text-sm mt-1">วันอาทิตย์ที่ 6 ธันวาคม 2569 · เริ่ม 07:09 น.</p>
+            <div className="w-12 h-px bg-[#C9A45C] mx-auto my-4"></div>
+            <p className="text-[#536B3E] font-serif font-semibold">The School Auditorium</p>
+            <p className="text-[#789568] font-serif text-sm mt-1">โรงเรียนกระทุ่มแบน &quot;วิเศษสมุทคุณ&quot;</p>
+          </div>
 
-          {/* Thai Headline */}
-          <p className="text-white font-serif text-base opacity-95">
-            ขอบคุณที่เป็นส่วนหนึ่งของวันพิเศษของเรา
-          </p>
+          <Countdown />
+
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/rsvp" className="px-10 py-3 bg-white text-[#536B3E] font-serif font-bold rounded-full shadow-lg hover:bg-[#F5EBD2] transition-all">
+              RSVP / ยืนยันการเข้าร่วม
+            </Link>
+            <a href="https://maps.app.goo.gl/rggfEtMGCi5gQyty5" target="_blank" rel="noopener noreferrer" className="px-10 py-3 border-2 border-white text-white font-serif font-bold rounded-full hover:bg-white/15 transition-all">
+              Map / ดูแผนที่
+            </a>
+          </div>
         </div>
       </div>
       {/* Photo Gallery */}
@@ -211,8 +250,8 @@ export default function Home() {
       <section className="max-w-4xl mx-auto px-4 pt-16">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#789568]/10">
           <div className="bg-gradient-to-r from-[#789568] to-[#536B3E] px-8 py-8 text-center text-white">
-            <h2 className="font-serif text-2xl font-bold mb-2">Wedding Card / การ์ดแต่งงาน</h2>
-            <p className="font-serif text-sm opacity-90">เปิดอ่านการ์ดเชิญของเรา</p>
+            <h2 className="font-serif text-2xl font-bold mb-2 text-white">Wedding Card / การ์ดแต่งงาน</h2>
+            <p className="font-serif text-sm text-white opacity-90">เปิดอ่านการ์ดเชิญของเรา</p>
           </div>
 
           <div className="p-4 sm:p-8">
@@ -237,15 +276,15 @@ export default function Home() {
 
       {/* Feature Cards */}
       <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
           {/* RSVP Card */}
           <Link href="/rsvp" className="group">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105 border border-[#789568]/10">
-              <div className="relative h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
-                <img src="https://i.postimg.cc/nLvSTyT6/khxng-char-wy-(2).png" alt="RSVP" className="w-28 h-28 object-contain" />
+              <div className="relative h-32 sm:h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
+                <img src="https://i.postimg.cc/nLvSTyT6/khxng-char-wy-(2).png" alt="RSVP" className="w-20 h-20 sm:w-28 sm:h-28 object-contain" />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-2">RSVP</h3>
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#536B3E] mb-2">RSVP</h3>
                 <p className="text-[#789568] font-serif text-sm">Confirm Your Attendance</p>
                 <p className="text-[#789568] font-serif text-sm">ยืนยันการเข้าร่วม</p>
               </div>
@@ -255,11 +294,11 @@ export default function Home() {
           {/* Gallery Card */}
           <Link href="https://drive.google.com/drive/folders/161V_cnOtutZLQOh5CVz3Es5fmMdDBX4R?usp=sharing" target="_blank" rel="noopener noreferrer" className="group">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105 border border-[#789568]/10">
-              <div className="relative h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
-                <img src="https://i.postimg.cc/fbxq5GBQ/khxng-char-wy-(3).png" alt="Gallery" className="w-28 h-28 object-contain" />
+              <div className="relative h-32 sm:h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
+                <img src="https://i.postimg.cc/fbxq5GBQ/khxng-char-wy-(3).png" alt="Gallery" className="w-20 h-20 sm:w-28 sm:h-28 object-contain" />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-2">Photos</h3>
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#536B3E] mb-2">Photos</h3>
                 <p className="text-[#789568] font-serif text-sm">Our Memories</p>
                 <p className="text-[#789568] font-serif text-sm">ความทรงจำของเรา</p>
               </div>
@@ -269,11 +308,11 @@ export default function Home() {
           {/* Information Card */}
           <Link href="/information" className="group">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105 border border-[#789568]/10">
-              <div className="relative h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
-                <img src="https://i.postimg.cc/MGy3tCdw/khxng-char-wy-(4).png" alt="Information" className="w-28 h-28 object-contain" />
+              <div className="relative h-32 sm:h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
+                <img src="https://i.postimg.cc/MGy3tCdw/khxng-char-wy-(4).png" alt="Information" className="w-20 h-20 sm:w-28 sm:h-28 object-contain" />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-2">Information</h3>
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#536B3E] mb-2">Information</h3>
                 <p className="text-[#789568] font-serif text-sm">Wedding Details</p>
                 <p className="text-[#789568] font-serif text-sm">รายละเอียด</p>
               </div>
@@ -283,13 +322,13 @@ export default function Home() {
           {/* Online Gift Card */}
           <Link href="https://parn-mike-wedding.netlify.app" target="_blank" rel="noopener noreferrer" className="group">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105 border border-[#789568]/10">
-              <div className="relative h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
-                <img src="https://i.postimg.cc/FKDRJsfP/PM-Wedding-Card-3.png" alt="Wishes & Gift" className="w-28 h-28 object-contain" />
+              <div className="relative h-32 sm:h-48 bg-gradient-to-b from-[#789568]/20 to-[#F5EBD2] flex items-center justify-center">
+                <img src="https://i.postimg.cc/FKDRJsfP/PM-Wedding-Card-3.png" alt="Wishes & Gift" className="w-20 h-20 sm:w-28 sm:h-28 object-contain" />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="font-serif text-xl font-bold text-[#536B3E] mb-2">Wishes & Gift</h3>
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#536B3E] mb-2">Wishes & Gift</h3>
                 <p className="text-[#789568] font-serif text-sm">Send Your Wishes Online</p>
-                <p className="text-[#789568] font-serif text-sm">ร่วมอวยพรและช่วยงานออนไลน์</p>
+                <p className="text-[#789568] font-serif text-sm">อวยพรและช่วยงานออนไลน์</p>
               </div>
             </div>
           </Link>
@@ -301,10 +340,11 @@ export default function Home() {
         <h2 className="text-center font-serif text-3xl font-bold text-[#536B3E] mb-12">
           Our Wedding Day Timeline / ตารางเวลาในวันงาน
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <p className="text-center font-serif text-sm text-[#789568] -mt-8 mb-10">Sunday, 6 December 2026 · วันอาทิตย์ที่ 6 ธันวาคม 2569</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Ceremony */}
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-[#789568]/10 hover:shadow-xl transition-all">
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center md:flex-col md:text-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full bg-[#789568]/5 flex items-center justify-center flex-shrink-0">
                 <img src="https://i.postimg.cc/SR0W5RsZ/khxng-char-wy-(5).png" alt="Ceremony" className="w-12 h-12 object-contain" />
               </div>
@@ -318,12 +358,12 @@ export default function Home() {
 
           {/* Reception */}
           <div className="bg-white rounded-2xl shadow-lg p-6 border border-[#789568]/10 hover:shadow-xl transition-all">
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center md:flex-col md:text-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full bg-[#789568]/5 flex items-center justify-center flex-shrink-0">
                 <img src="https://i.postimg.cc/yxqF5xdr/khxng-char-wy-(6).png" alt="Reception" className="w-12 h-12 object-contain" />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-[#536B3E]">แห่ขันหมาก</h3>
+                <h3 className="font-serif text-lg font-bold text-[#536B3E]">Khan Maak / แห่ขันหมาก</h3>
                 <p className="text-[#789568] font-serif text-sm">08:39 AM</p>
               </div>
             </div>
@@ -331,8 +371,8 @@ export default function Home() {
           </div>
 
           {/* Celebration */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 border border-[#789568]/10 hover:shadow-xl transition-all md:col-span-2">
-            <div className="flex items-center gap-4 mb-4">
+          <div className="bg-white rounded-2xl shadow-lg p-6 border border-[#789568]/10 hover:shadow-xl transition-all">
+            <div className="flex items-center md:flex-col md:text-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full bg-[#789568]/5 flex items-center justify-center flex-shrink-0">
                 <img src="https://i.postimg.cc/MHky4HHw/khxng-char-wy-(7).png" alt="Celebration" className="w-12 h-12 object-contain" />
               </div>
